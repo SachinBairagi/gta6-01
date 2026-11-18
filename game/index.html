@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solmar Bay — Open World</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="1280" height="720"></canvas>
+
+  <div id="hud" class="hidden">
+    <div id="hud-top-left">
+      <div id="money">$<span id="money-val">500</span></div>
+      <div id="health-row"><div id="health-bar"><div id="health-fill"></div></div><span id="health-num">100</span></div>
+      <div id="ammo-row"><span id="weapon-name">PISTOL</span> <span id="ammo-val">&infin;</span></div>
+    </div>
+    <div id="hud-top-right">
+      <div id="stars"></div>
+      <div id="clock">DAY 1 &middot; 09:41</div>
+    </div>
+    <div id="objective"><span id="objective-label">OBJECTIVE</span><span id="objective-text">Explore Solmar Bay</span></div>
+    <div id="banner" class="hidden"></div>
+    <div id="hint"></div>
+    <canvas id="minimap" width="220" height="160"></canvas>
+    <div id="toast" class="hidden"></div>
+  </div>
+
+  <div id="title-screen" class="screen">
+    <div class="title-inner">
+      <div class="title-kicker">A SUN-SOAKED OPEN WORLD</div>
+      <h1>SOLMAR<br>BAY</h1>
+      <p class="title-sub">Steal cars. Outrun the law. Make your name on the coast.</p>
+      <div class="title-menu">
+        <button id="btn-start" class="menu-btn primary">NEW GAME</button>
+        <button id="btn-continue" class="menu-btn">CONTINUE</button>
+        <button id="btn-howto" class="menu-btn">HOW TO PLAY</button>
+      </div>
+      <p class="title-foot">WASD move &amp; drive &middot; E enter / exit car &middot; Mouse aim, Click shoot &middot; Space handbrake &middot; M mute &middot; P pause</p>
+      <p class="title-credit">An original game. No real city, no real people, no borrowed assets.</p>
+    </div>
+  </div>
+
+  <div id="howto-screen" class="screen hidden">
+    <div class="panel">
+      <h2>HOW TO PLAY</h2>
+      <ul>
+        <li><b>W A S D</b> — walk, or drive when you are in a car</li>
+        <li><b>E</b> — steal / enter the nearest car, or get out</li>
+        <li><b>Mouse + Click</b> — aim and shoot (on foot)</li>
+        <li><b>Space</b> — handbrake while driving</li>
+        <li><b>Shift</b> — sprint on foot</li>
+        <li><b>M</b> — mute sound &nbsp; <b>P</b> — pause</li>
+      </ul>
+      <p>Crimes raise your wanted level. Lose the police by breaking line of sight, or lay low until the heat fades. Finish missions at the yellow markers to earn cash and unlock the next job. Your progress saves automatically.</p>
+      <button id="btn-howto-back" class="menu-btn primary">BACK</button>
+    </div>
+  </div>
+
+  <div id="pause-screen" class="screen hidden">
+    <div class="panel">
+      <h2>PAUSED</h2>
+      <p id="pause-stats"></p>
+      <button id="btn-resume" class="menu-btn primary">RESUME</button>
+      <button id="btn-quit" class="menu-btn">QUIT TO TITLE</button>
+    </div>
+  </div>
+
+  <div id="dead-screen" class="screen hidden">
+    <div class="panel">
+      <h2 class="wasted">WASTED</h2>
+      <p id="dead-text">The Bay PD caught up with you.</p>
+      <button id="btn-retry" class="menu-btn primary">RESPAWN — $200</button>
+      <button id="btn-dead-title" class="menu-btn">QUIT TO TITLE</button>
+    </div>
+  </div>
+
+  <div id="busted-screen" class="screen hidden">
+    <div class="panel">
+      <h2 class="wasted">BUSTED</h2>
+      <p id="busted-text">The Bay PD took you in. You posted bail.</p>
+      <button id="btn-busted-retry" class="menu-btn primary">BACK TO THE STREETS — $300</button>
+      <button id="btn-busted-title" class="menu-btn">QUIT TO TITLE</button>
+    </div>
+  </div>
+
+  <div id="end-screen" class="screen hidden">
+    <div class="panel">
+      <h2>KING OF SOLMAR BAY</h2>
+      <p id="end-text"></p>
+      <button id="btn-end-free" class="menu-btn primary">KEEP PLAYING</button>
+      <button id="btn-end-title" class="menu-btn">QUIT TO TITLE</button>
+    </div>
+  </div>
+</div>
+<script src="js/util.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/city.js"></script>
+<script src="js/entities.js"></script>
+<script src="js/missions.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
